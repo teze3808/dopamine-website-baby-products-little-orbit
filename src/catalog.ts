@@ -56,7 +56,7 @@ const seeds: Seed[] = [
 ['first-orbit-gift-set','第一次環遊禮物組','First Orbit Gift Set','五件小物，一盒都冇，但心意好多。',688,'小窩禮物','編輯精選'],
 ]
 
-export const products: Product[] = seeds.map((s,i)=>({id:s[0],name:s[1],enName:s[2],description:s[3],price:s[4],category:s[5],badge:s[6] as Product['badge'],image:`/products/full-catalog/${String(i+1).padStart(2,'0')}-${s[0]}.png`,rating:Number((4.6+(i%4)*.1).toFixed(1)),aliases:[s[2].toLowerCase(),s[1].replaceAll(' ',''),s[5]]}))
+export const products: Product[] = seeds.map((s,i)=>({id:s[0],name:s[1],enName:s[2],description:s[3],price:s[4],category:s[5],badge:s[6] as Product['badge'],image:`/products/full-catalog/${String(i+1).padStart(2,'0')}-${s[0]}.webp`,rating:Number((4.6+(i%4)*.1).toFixed(1)),aliases:[s[2].toLowerCase(),s[1].replaceAll(' ',''),s[5]]}))
 
 export const categories:{name:Category;icon:string;count:number;blurb:string}[]=[
 {name:'睡眠星系',icon:'☾',count:10,blurb:'瞓入最柔軟嗰片星空'},

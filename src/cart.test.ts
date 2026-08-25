@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { createFictionalOrder, loadCart, PAYABLE_TOTAL, pickStoryId } from './cart'
+import { products } from './catalog'
 
 describe('zero-charge cart rules', () => {
   beforeEach(() => {
@@ -33,5 +34,12 @@ describe('zero-charge cart rules', () => {
     vi.stubGlobal('crypto', { getRandomValues: (values: Uint32Array) => { values[0] = 8; return values } })
     expect(pickStoryId(3)).toBe(2)
     expect(pickStoryId(0)).toBe(0)
+  })
+
+  it('uses a unique optimized image path for every catalog product', () => {
+    const paths = products.map(product => product.image)
+    expect(paths).toHaveLength(50)
+    expect(new Set(paths).size).toBe(50)
+    expect(paths.every(path => path.endsWith('.webp'))).toBe(true)
   })
 })
