@@ -1,0 +1,67 @@
+export type Category = '睡眠星系' | '穿搭軌道' | '玩樂宇宙' | '出門探索' | '小窩禮物'
+
+export type Product = { id:string; name:string; enName:string; description:string; category:Category; price:number; image:string; rating:number; badge?:'人氣之選'|'新星登場'|'編輯精選'; aliases:string[] }
+type Seed = readonly [string,string,string,string,number,Category,string?]
+
+const seeds: Seed[] = [
+['orbit-whale-plush','星海慢游鯨魚','Orbit Whale Plush','軟綿綿浮過每一個發夢時段。',249,'睡眠星系','人氣之選'],
+['crescent-bunny-comforter','月牙兔安撫巾','Crescent Bunny Comforter','長耳仔專門收藏細細聲嘅秘密。',189,'睡眠星系'],
+['cloud-drift-nightlight','漂浮雲朵夜燈','Cloud Drift Nightlight','借一小片月光，陪你慢慢瞓。',328,'睡眠星系','編輯精選'],
+['moonphase-sleep-sack','月相包被睡袋','Moonphase Sleep Sack','由新月瞓到滿月都咁舒服。',398,'睡眠星系'],
+['nebula-muslin-blanket','星雲紗布被','Nebula Muslin Blanket','輕到似星雲，暖到唔想起身。',279,'睡眠星系'],
+['comet-cot-mobile','彗星小床吊飾','Comet Cot Mobile','月亮星星慢慢轉，今晚唔趕路。',459,'睡眠星系','新星登場'],
+['starlight-sound-machine','星光晚安機','Starlight Sound Machine','播住宇宙最安靜嗰一段。',529,'睡眠星系'],
+['cloud-cradle-sheet-set','雲端床單兩件組','Cloud Cradle Sheet Set','每晚都好似瞓喺雲嘅背脊。',319,'睡眠星系'],
+['eclipse-nursery-curtain','月蝕小窩窗簾','Eclipse Nursery Curtain','將日光收埋，留返啲星俾你。',688,'睡眠星系'],
+['milky-way-bedtime-book','銀河晚安布書','Milky Way Bedtime Book','唔識字都可以行一次銀河。',169,'睡眠星系'],
+['moonbeam-knit-cardigan','月光針織小外套','Moonbeam Knit Cardigan','著住一束暖暖月光出門口。',348,'穿搭軌道','人氣之選'],
+['orbit-pocket-romper','小行星口袋連身衣','Orbit Pocket Romper','今日任務：可愛地繞場一周。',298,'穿搭軌道'],
+['saturn-ring-socks','土星環小襪','Saturn Ring Socks','兩隻腳仔都有自己嘅軌道。',98,'穿搭軌道'],
+['startrail-knit-booties','星路針織鞋仔','Startrail Knit Booties','未識行，已經留低成條星路。',168,'穿搭軌道','新星登場'],
+['cosmic-cloud-bonnet','宇宙雲朵帽','Cosmic Cloud Bonnet','將一朵雲輕輕戴上頭。',188,'穿搭軌道'],
+['galaxy-dribble-bib-set','銀河口水肩三件組','Galaxy Dribble Bib Set','接住口水，同埋跌落嚟嘅星星。',219,'穿搭軌道'],
+['moon-pocket-dungarees','月牙袋吊帶褲','Moon Pocket Dungarees','個袋細細，裝得落成個月亮。',368,'穿搭軌道'],
+['comet-rain-cape','彗星小雨披','Comet Rain Cape','落雨都照樣拖住尾巴飛。',429,'穿搭軌道','編輯精選'],
+['aurora-pajama-set','極光睡衣套裝','Aurora Pajama Set','將北極光著上身再講早唞。',328,'穿搭軌道'],
+['lunar-pom-beanie','月球毛球冷帽','Lunar Pom Beanie','頭頂有粒自己嘅小月球。',158,'穿搭軌道'],
+['little-planets-stacking-toy','小行星疊疊塔','Little Planets Stacking Toy','跌散一個宇宙，再慢慢砌返好。',229,'玩樂宇宙','人氣之選'],
+['comet-trail-pull-toy','彗星尾木頭鯨','Comet Trail Pull Toy','慢慢拖住行，佢永遠唔催你。',269,'玩樂宇宙'],
+['constellation-building-blocks','星座積木組','Constellation Building Blocks','今日想砌一粒星，定成個宇宙？',338,'玩樂宇宙'],
+['moon-pebble-rattle','月亮卵石搖鈴','Moon Pebble Rattle','搖一搖，聽吓月亮有冇回音。',149,'玩樂宇宙'],
+['soft-rocket-explorer','軟綿綿探索火箭','Soft Rocket Explorer','目的地係梳化另一邊。',239,'玩樂宇宙','新星登場'],
+['starlight-projection-globe','星光投影小星球','Starlight Projection Globe','熄咗燈，間房即刻大十倍。',398,'玩樂宇宙'],
+['orbit-activity-gym','環遊星空遊戲墊','Orbit Activity Gym','瞓低就可以開始第一次太空漫步。',788,'玩樂宇宙','編輯精選'],
+['cosmic-bath-fleet','宇宙沖涼小隊','Cosmic Bath Fleet','浴缸水深三吋，探險無限遠。',199,'玩樂宇宙'],
+['galaxy-sensory-ball-set','銀河觸感星球組','Galaxy Sensory Ball Set','五粒星球，五種手仔新發現。',259,'玩樂宇宙'],
+['crescent-sky-puzzle','月牙天空拼圖','Crescent Sky Puzzle','將月亮、雲同鯨魚送返屋企。',289,'玩樂宇宙'],
+['meteor-snack-cup','流星小食杯','Meteor Snack Cup','餅餅入口前先繞一個圈。',159,'出門探索'],
+['moon-sip-cup','月亮飲飲杯','Moon Sip Cup','飲啖水，補充登月能量。',169,'出門探索'],
+['orbit-bowl-spoon','軌道餐碗匙羹組','Orbit Bowl & Spoon','每一啖都穩穩留喺軌道上。',218,'出門探索','人氣之選'],
+['constellation-lunch-bag','星座午餐袋','Constellation Lunch Bag','今日帶三文治去邊粒星？',248,'出門探索'],
+['galaxy-foldaway-changing-mat','銀河摺摺換片墊','Galaxy Foldaway Changing Mat','展開一小片乾淨嘅私人宇宙。',329,'出門探索'],
+['moon-voyager-backpack','月球旅行背包','Moon Voyager Backpack','裝好一日份量嘅小小大事。',469,'出門探索','編輯精選'],
+['starlight-stroller-blanket','星光車仔被','Starlight Stroller Blanket','出街都可以帶埋自己片星空。',298,'出門探索'],
+['comet-clip-stroller-toy','彗星車仔吊飾','Comet Clip Stroller Toy','架車停低，彗星都仲喺度。',179,'出門探索'],
+['orbit-travel-organiser','軌道旅行收納袋','Orbit Travel Organiser','濕紙巾同襪仔各有自己星位。',289,'出門探索'],
+['solar-shade-bonnet','小太陽遮陽帽','Solar Shade Bonnet','帶住一圈陽光，唔使曬到瞇眼。',198,'出門探索'],
+['constellation-muslin-set','星座紗巾三件組','Constellation Muslin Set','三片柔軟天空，日日輪流用。',268,'小窩禮物','人氣之選'],
+['crescent-wall-shelf','月牙牆上小架','Crescent Wall Shelf','月亮都有位擺你最珍貴嘅小物。',489,'小窩禮物'],
+['little-planet-wall-hooks','小星球掛鈎組','Little Planet Wall Hooks','外套、帽仔，各自泊返自己星球。',259,'小窩禮物'],
+['star-cloud-laundry-basket','星雲衣物籃','Star Cloud Laundry Basket','將今日嘅小混亂收進雲入面。',369,'小窩禮物'],
+['orbit-keepsake-frame','軌道回憶相架','Orbit Keepsake Frame','留一格空位俾最想記住嗰刻。',229,'小窩禮物'],
+['constellation-memory-box','星座回憶盒','Constellation Memory Box','收起第一粒牙，同一堆好細嘅回憶。',318,'小窩禮物','新星登場'],
+['sleepy-moon-cushion','眼瞓月亮攬枕','Sleepy Moon Cushion','佢先瞓，你跟住嚟。',239,'小窩禮物'],
+['celestial-storage-basket-trio','星空收納籃三件組','Celestial Storage Basket Trio','大中細三個宇宙，專收地上雜物。',429,'小窩禮物'],
+['planet-milestone-tokens','小星球紀念木牌','Planet Milestone Tokens','冇日期冇壓力，只係記住今日。',188,'小窩禮物'],
+['first-orbit-gift-set','第一次環遊禮物組','First Orbit Gift Set','五件小物，一盒都冇，但心意好多。',688,'小窩禮物','編輯精選'],
+]
+
+export const products: Product[] = seeds.map((s,i)=>({id:s[0],name:s[1],enName:s[2],description:s[3],price:s[4],category:s[5],badge:s[6] as Product['badge'],image:`/products/full-catalog/${String(i+1).padStart(2,'0')}-${s[0]}.png`,rating:Number((4.6+(i%4)*.1).toFixed(1)),aliases:[s[2].toLowerCase(),s[1].replaceAll(' ',''),s[5]]}))
+
+export const categories:{name:Category;icon:string;count:number;blurb:string}[]=[
+{name:'睡眠星系',icon:'☾',count:10,blurb:'瞓入最柔軟嗰片星空'},
+{name:'穿搭軌道',icon:'✦',count:10,blurb:'今日著邊粒星出門口？'},
+{name:'玩樂宇宙',icon:'◌',count:10,blurb:'細手仔嘅無限大發現'},
+{name:'出門探索',icon:'↗',count:10,blurb:'離開梳化，飛去樓下'},
+{name:'小窩禮物',icon:'⌂',count:10,blurb:'將月光帶返屋企'},
+]
