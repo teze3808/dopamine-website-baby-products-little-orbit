@@ -19,6 +19,7 @@ Campaign line: **買盡成個宇宙，埋單都係 $0。**
 - Intended GitHub owner: **`teze3808`**
 - Production host: **Render**
 - Render service name: **`dopamine-website-baby-products-little-orbit`**, subject to Render availability
+- Production URL: **https://dopamine-website-baby-products-little.onrender.com**
 - Primary locale/currency: **Traditional Chinese (`zh-HK`) / HKD**
 
 Repository names for future sites in this series must follow:
