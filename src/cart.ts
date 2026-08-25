@@ -1,7 +1,22 @@
 export type Cart = Record<string, number>
 export const PAYABLE_TOTAL = 0
+export const PROMO_CODE = '7s'
 const KEY = 'little-orbit:cart:v1'
 const ORDER_KEY = 'little-orbit:orders:v1'
+
+export type CheckoutDiscounts = {
+  promoApplied: boolean
+  promoDiscountHkd: number
+  experienceDiscountHkd: number
+  payableHkd: 0
+}
+
+export function calculateCheckoutDiscounts(subtotalHkd: number, code: string): CheckoutDiscounts {
+  const subtotal = Math.max(0, Math.trunc(subtotalHkd))
+  const promoApplied = code.trim().toLowerCase() === PROMO_CODE
+  const promoDiscountHkd = promoApplied ? Math.round(subtotal * .9) : 0
+  return {promoApplied,promoDiscountHkd,experienceDiscountHkd:subtotal-promoDiscountHkd,payableHkd:PAYABLE_TOTAL}
+}
 
 export type FictionalOrder = {
   id: string

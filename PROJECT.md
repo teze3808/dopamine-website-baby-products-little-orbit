@@ -153,9 +153,10 @@ Suggested initial categories:
 - No real payment integration and no editable payment credentials.
 - A pre-filled display-only method such as `DOPAMINE PASS •••• 0000`.
 - Delivery destination is limited to a broad, optional district selection; never request a street address for the MVP.
+- Include an optional discount-code field. The hardcoded local-only code **`7s`** applies 90% off the imaginary subtotal; matching is case-insensitive and ignores surrounding whitespace.
 - Required acknowledgement: **「我明白呢個係模擬落單，唔會付款，亦唔會收到貨。」**
-- Final button: **「模擬落單・HK$0」**.
-- Show the imaginary subtotal as context, then apply a named discount such as **「多巴胺全免優惠」** equal to the full amount.
+- Final button: **「確認模擬訂單」**.
+- Show the imaginary subtotal, the optional `7s` promotion, and an experience discount that covers the remaining balance. The payable total remains numeric zero with or without the code.
 - Do not show shipping fees, tax, installment offers, or a non-zero amount on the primary action.
 
 ### Order confirmation and tracking
@@ -348,6 +349,7 @@ The MVP is complete when:
 - A visitor can complete the browse → cart → fictional checkout → tracking journey without an account.
 - No step accepts or transmits sensitive personal or payment data.
 - The payable amount is always HK$0, including after quantity and navigation changes.
+- Discount code `7s` applies 90% off the displayed subtotal without weakening the zero-charge invariant; invalid codes show localized feedback and change no totals.
 - Refreshing preserves local cart/order state, and the visitor can clear it.
 - At least three distinct fictional delivery stories are available.
 - The primary journey works by keyboard and with reduced motion enabled.

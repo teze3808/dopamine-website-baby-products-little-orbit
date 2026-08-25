@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { createFictionalOrder, loadCart, PAYABLE_TOTAL, pickStoryId } from './cart'
+import { calculateCheckoutDiscounts, createFictionalOrder, loadCart, PAYABLE_TOTAL, pickStoryId, PROMO_CODE } from './cart'
 import { products } from './catalog'
 
 describe('zero-charge cart rules', () => {
@@ -9,6 +9,16 @@ describe('zero-charge cart rules', () => {
 
   it('keeps the payable total at numeric zero', () => {
     expect(PAYABLE_TOTAL).toBe(0)
+  })
+
+  it('applies code 7s as 90% off while the payable total remains zero', () => {
+    expect(PROMO_CODE).toBe('7s')
+    expect(calculateCheckoutDiscounts(1000,'7s')).toEqual({promoApplied:true,promoDiscountHkd:900,experienceDiscountHkd:100,payableHkd:0})
+    expect(calculateCheckoutDiscounts(249,' 7S ')).toEqual({promoApplied:true,promoDiscountHkd:224,experienceDiscountHkd:25,payableHkd:0})
+  })
+
+  it('rejects any other discount code without changing the zero-charge invariant', () => {
+    expect(calculateCheckoutDiscounts(1000,'orbit')).toEqual({promoApplied:false,promoDiscountHkd:0,experienceDiscountHkd:1000,payableHkd:0})
   })
 
   it('rejects malformed persisted cart data', () => {
