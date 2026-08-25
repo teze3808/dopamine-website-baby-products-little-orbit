@@ -18,9 +18,11 @@ Campaign line: **買盡成個宇宙，埋單都係 $0。**
 - GitHub repository: **`dopamine-website-baby-products-little-orbit`**
 - Intended GitHub owner: **`teze3808`**
 - Production host: **Render**
-- Render service name: **`dopamine-website-baby-products-little-orbit`**, subject to Render availability
-- Production URL: **https://dopamine-website-baby-products-little.onrender.com**
+- Render service name: **`little-orbit`**
+- Production URL: **https://little-orbit.onrender.com**
 - Primary locale/currency: **Traditional Chinese (`zh-HK`) / HKD**
+- Supported locales: **Traditional Chinese (`zh-HK`), Simplified Chinese (`zh-CN`), Japanese (`ja`), and English (`en`)**
+- Supported display currencies: **HKD, CNY, JPY, and USD**
 
 Repository names for future sites in this series must follow:
 
@@ -52,10 +54,10 @@ Most importantly, do not reuse its current checkout model unchanged. The prototy
 ## Product principles
 
 1. **Fun before realism.** It should feel familiar enough to use immediately, but playful enough that nobody mistakes it for a real shop.
-2. **Zero money, zero ambiguity.** Every important step says that the transaction is fictional and the final charge is HK$0.
+2. **Clear at the decision point.** Keep the editorial storefront focused on products and brand storytelling; state that the experience is simulated in the cart, checkout acknowledgement, and confirmation where the distinction matters.
 3. **No sensitive data.** Never request or store real card numbers, identity documents, phone numbers, or precise home addresses.
 4. **Fast dopamine loop.** A visitor should be able to browse, add an item, check out, and see a delivery event in under one minute.
-5. **Hong Kong personality.** Traditional Chinese and conversational Cantonese are the primary voice, with optional English support. Prices display in HKD.
+5. **Hong Kong personality, multilingual reach.** Traditional Chinese and conversational Cantonese are the default voice, with complete Simplified Chinese, Japanese, and English journeys. Visitors can select HKD, CNY, JPY, or USD independently from language.
 6. **Original execution.** Reference sites may inform the interaction pattern, but branding, copy, artwork, catalog data, and implementation must be original.
 
 ## Audience
@@ -192,7 +194,7 @@ Suggested initial categories:
 
 ## Content and voice
 
-Primary UI language is Traditional Chinese (`zh-HK`) with concise, natural Cantonese phrasing. English (`en`) may be added through the same translation system. Do not hard-code both languages into components.
+The default UI language is Traditional Chinese (`zh-HK`) with concise, natural Cantonese phrasing. The complete core journey is also available in Simplified Chinese (`zh-CN`), Japanese (`ja`), and English (`en`). Keep all user-facing journey copy centralized in locale data rather than hard-coding languages into components.
 
 Voice characteristics:
 
@@ -203,10 +205,10 @@ Voice characteristics:
 
 Example copy:
 
-- Hero: **買盡全世界，埋單都係 $0。**
-- Supporting line: **加落購物車、撳掣「付款」、等件永遠唔會到嘅貨。全程純屬玩樂。**
-- Cart success: **加咗！銀包表示非常安全。**
-- Confirmation: **落單成功——放心，冇任何錢離開過你。**
+- Hero: **小小宇宙，大大想像。**
+- Supporting line: **月亮、星星同柔軟小物，陪你慢慢行過每一段小小日常。**
+- Cart success: **已加入購物袋！**
+- Confirmation: **這是模擬訂單，沒有付款，也不會安排送貨。**
 
 ## Visual direction
 
@@ -261,9 +263,9 @@ The existing generated product imagery is part of the Little Orbit identity. Kee
 Maison Mallow demonstrates that language and currency controls can work independently. For this project:
 
 - Default to `zh-HK` and HKD.
-- Ship English as the second locale only when the complete primary journey is translated; never mix fallback English into a Traditional Chinese checkout.
-- Preserve the visitor's locale preference locally.
-- HKD is the canonical catalog currency for MVP. If more display currencies are added later, convert only the imaginary subtotal; the charged amount remains numeric zero in every currency.
+- Enable `zh-HK`, `zh-CN`, `ja`, and `en` only as complete core journeys; never mix fallback copy into navigation, catalog controls, cart, checkout, or confirmation.
+- Preserve locale and currency preferences independently on the visitor's device.
+- HKD remains the canonical catalog currency. Convert display values to CNY, JPY, or USD with a fixed presentation rate; the charged amount remains numeric zero in every currency.
 - Use `Intl.NumberFormat` and test zero, large totals, and locale switching.
 - Search should match localized names and aliases for the active locale.
 
@@ -271,7 +273,7 @@ Maison Mallow demonstrates that language and currency controls can work independ
 
 These are release blockers:
 
-- Display **「純屬模擬・不會收費・不會送貨」** in the header or another persistent location.
+- Disclose the simulated, no-payment, no-delivery nature before checkout, require an explicit acknowledgement at checkout, and repeat it at confirmation. Avoid repeating this message across the hero, product cards, and product detail views.
 - Do not render inputs that resemble usable card-number, CVV, bank-login, or government-ID fields.
 - Do not send checkout, cart, or district data to a server in the MVP.
 - Do not use third-party analytics that capture form values or replay sessions by default.
