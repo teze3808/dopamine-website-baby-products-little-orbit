@@ -1,5 +1,9 @@
 # Little Orbit
 
+[![Little Orbit homepage](docs/little-orbit-homepage.png)](https://little-orbit.onrender.com/)
+
+[View the live storefront](https://little-orbit.onrender.com/)
+
 Little Orbit is a Hong Kong–first fictional baby-products storefront. Visitors can browse 50 original products, add them to a local cart, complete a clearly simulated checkout, and follow an imaginary delivery story. The payable amount is always HK$0.
 
 ## Trust promise
